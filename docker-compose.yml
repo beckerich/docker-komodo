@@ -1,0 +1,14 @@
+version: '3'
+services:
+  komodod:
+    tty: true
+    build: .
+    restart: always
+    image: komodo:0.0.1
+    volumes:
+     - ./data:/komodo/data
+     - ./coin.conf:/root/.komodo/komodo.conf
+     - ./coin.conf:/komodo/komodo.conf
+    ports:
+       - 7771:7771
+
