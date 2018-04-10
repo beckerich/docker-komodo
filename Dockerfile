@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:stretch-slim
 
 # Get Dependencies
 RUN apt-get update && apt-get -y upgrade
@@ -19,4 +19,4 @@ WORKDIR /coin
 RUN cp /tmp/coin-daemon/src/komodod .
 
 EXPOSE 7771
-CMD komodod --datadir=/komodo/data
+CMD ./komodod --datadir=/komodo/data
