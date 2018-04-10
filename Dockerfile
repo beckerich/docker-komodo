@@ -20,5 +20,6 @@ WORKDIR /coin
 RUN cp /tmp/coin-daemon/src/komodod ./daemon
 RUN cp /tmp/coin-daemon/src/komodo-cli ./cli
 
-EXPOSE 7771
+EXPOSE 3000
+EXPOSE 3001
 CMD ./daemon --datadir=/coin/data

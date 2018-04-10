@@ -9,4 +9,5 @@ services:
      - ./coin.conf:/root/.komodo/komodo.conf
      - ./coin.conf:/coin/data/komodo.conf
     ports:
-       - 7771:7771
+       - 3000:3000
+       - 3001:3001
