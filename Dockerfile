@@ -10,13 +10,15 @@ RUN apt-get -y install \
 
 # Build
 RUN git clone https://github.com/jl777/komodo /tmp/coin-daemon
-RUN cd /tmp/coin-daemon && ./zcutil/fetch-params.sh
-RUN cd /tmp/coin-daemon && ./zcutil/build.sh -j$(nproc)
+WORKDIR /tmp/coin-daemon
+RUN ./zcutil/fetch-params.sh
+RUN ./zcutil/build.sh -j$(nproc)
 
 RUN mkdir -p /coin/data
 
 WORKDIR /coin
-RUN cp /tmp/coin-daemon/src/komodod .
+RUN cp /tmp/coin-daemon/src/komodod ./daemon
+RUN cp /tmp/coin-daemon/src/komodo-cli ./cli
 
 EXPOSE 7771
-CMD ./komodod --datadir=/komodo/data
+CMD ./daemon --datadir=/coin/data
