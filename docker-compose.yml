@@ -3,7 +3,7 @@ services:
   komodod:
     tty: true
     restart: always
-    image: hbeckeri/komodod:1.0.1
+    image: hbeckeri/komodod:latest
     volumes:
      - ./data:/coin/data
      - ./coin.conf:/root/.komodo/komodo.conf
