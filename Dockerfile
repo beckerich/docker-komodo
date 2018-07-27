@@ -9,7 +9,7 @@ RUN apt-get -y install \
 	libprotobuf-dev protobuf-compiler libqt4-dev libqrencode-dev libdb++-dev ntp ntpdate
 
 # Build
-RUN git clone https://github.com/KomodoPlatform/komodo.git /tmp/coin-daemon
+RUN git clone https://github.com/KomodoPlatform/komodo.git --branch linux-20180727085308-1f5e032 /tmp/coin-daemon
 WORKDIR /tmp/coin-daemon
 RUN ./zcutil/fetch-params.sh
 RUN ./zcutil/build.sh -j$(nproc)
